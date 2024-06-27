@@ -1,18 +1,85 @@
 /* Global CSS for all pages */
 
-* {
-    /* Sizing helper: See Workbook 1b, page 2-33. */
+/* body, main {
+    Sizing helper: See Workbook 1b, page 2-33.
     box-sizing: border-box;
-
-    /* 
-       Vizualization helper: While styling or debugging your HTML & CSS, 
-       uncomment the rule below to see all the boxes on your page more
-       clearly! (Remove this outline before submitting: users won't 
-       want to see it!)
-    */
-    /* outline: 1px dotted red; */
-}
+    outline: 1px dotted red;
+} */
 
 :root {
     font-size: 1rem;
+    --Primary-color: #b8f7db;
+    --Secondary-color: #ff294a;
+    --Accent-color-1: #d72826d1;
+    --Accent-color-2: #ee4322;
+    --Accent-color-3: #f7b50d;
+    --Accent-color-4: #ffe97e;
+    --Accent-color-5: #F535AA;
+}
+
+body{
+    background: var(--Primary-color);
+    color: var(--Secondary-color);
+    letter-spacing: 5px;
+    font-family: "Montserrat", sans-serif;
+}
+
+h1{
+    font-family: "Playwrite IT Moderna", cursive;
+}
+
+p{
+    color: var(--Secondary-color);
+    font-weight: bolder;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: smaller;
+}
+
+a{
+    color: var(--Accent-color-5);
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: small;
+}
+
+a:hover{
+    color:var(--Accent-color-3);
+    font-weight: bolder;
+}
+
+.btn{    
+    color:var(--Primary-color);
+    background-color: var(--Secondary-color);
+}
+
+.btn:hover{
+    background-color: var(--Accent-color-4);
+    color: black;
+}
+
+input, button{
+    height:2.5em;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+  
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid var(--Accent-color-2);
+}
+  
+.separator:not(:empty)::before {
+    margin-right: .25em;
+}
+  
+.separator:not(:empty)::after {
+    margin-left: .25em;
 }

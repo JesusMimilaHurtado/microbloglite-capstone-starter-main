@@ -2,6 +2,15 @@
 
 "use strict";
 
+const googleButton = document.getElementById('google');
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    googleButton.addEventListener('click', () => {
+        window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?disallow_webview=true&response_type=code&redirect_uri=https%3A%2F%2Fbalsamiq.cloud%2F&scope=profile%20email&state=%7B%22authNonce%22%3A%22MC5kOTB5MDNlajJ0NQ%3D%3D%22%2C%22next%22%3Anull%2C%22auth_provider%22%3A%22google%22%7D&client_id=4720648203-v1g732u6b7rlr5j1tceik3mbhf8aupos.apps.googleusercontent.com&service=lso&o2v=2&ddm=0&flowName=GeneralOAuthFlow';
+    })
+})
+
 const loginForm = document.querySelector("#login");
 
 loginForm.onsubmit = function (event) {
@@ -15,10 +24,7 @@ loginForm.onsubmit = function (event) {
         username: loginForm.username.value,
         password: loginForm.password.value,
     }
-
-    // Disables the button after the form has been submitted already:
-    loginForm.loginButton.disabled = true;
-
+    
     // Time to actually process the login using the function from auth.js!
     login(loginData);
 };
