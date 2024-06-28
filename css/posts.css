@@ -123,3 +123,8 @@ img{
     box-shadow: none;
 }
 
+textarea{
+    resize: none;
+    height:100px;
+}
+
