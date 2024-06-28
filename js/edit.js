@@ -8,7 +8,6 @@ const editButton = document.getElementById("edit_profile");
 const bioInfo = document.getElementById("bio");
 
 //input fields
-const userNameInput = document.getElementById("userName");
 const fullnameInput = document.getElementById("fullname");
 const passwordInput = document.getElementById("password");
 const confirmPasswordInput = document.getElementById("confirmPassword");
@@ -19,38 +18,78 @@ const deadlineSelect = document.getElementById("deadline");
 
 document.addEventListener("DOMContentLoaded", () => {
     editButton.addEventListener("click", updateData);
+    getUserData()
 });
 
-function getLoginData() {
-    const loginJSON = window.localStorage.getItem("login-data");
-    return JSON.parse(loginJSON) || {};
+const username = localStorage.getItem('username');
+const token = localStorage.getItem('token');
+
+function getUserData(){
+    const myHeaders = new Headers();
+    myHeaders.append("accept", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      `http://microbloglite.us-east-2.elasticbeanstalk.com/api/users/${username}`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((data) => displayUserInfo(data))
+      .catch((error) => console.error(error));
+}
+
+function displayUserInfo(_data){
+    bioInfo.value = _data.bio;
+    fullnameInput.value = _data.fullName;
 }
 
 //will edit the data on the api
 function updateData() {
 
-    const loginData = getLoginData();
+    const password = passwordInput.value;
+    const confirmedPassword = confirmPasswordInput.value
 
     const myHeaders = new Headers();
     myHeaders.append("accept", "application/json");
-    myHeaders.append("Authorization", loginData.token);
+    myHeaders.append("Authorization", token);
     myHeaders.append("Content-Type", "application/json");
-    
-    const raw = JSON.stringify({
-      "password": passwordInput.value,
-      "bio": bioInfo.value,
-      "fullName": fullnameInput.value
-    });
+
+    let raw = '';
+
+    if (bioInfo.value) {
+        raw = JSON.stringify({
+            "bio": bioInfo.value
+        });
+    }
+
+    if (fullnameInput.value) {
+        raw = JSON.stringify({
+            "fullName": fullnameInput.value
+        });
+    }
+
+    if (password && password == confirmedPassword) {
+        raw = JSON.stringify({
+            "password": passwordInput.value
+        });
+    }
     
     const requestOptions = {
       method: "PUT",
-      headers: myHeaders,
+      header: myHeaders,
       body: raw,
       redirect: "follow"
     };
     
     fetch(`http://microbloglite.us-east-2.elasticbeanstalk.com/api/users/${loginData.username}`, requestOptions)
       .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then((data) => console.log(data))
       .catch((error) => console.error(error));
 }

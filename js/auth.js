@@ -23,6 +23,7 @@ function getLoginData () {
 function isLoggedIn () {
     const loginData = getLoginData();
     localStorage.setItem('username', loginData.username)
+    localStorage.setItem('token', loginData.token)
     return Boolean(loginData.token);
 }
 
