@@ -24,8 +24,20 @@ body{
     font-family: "Montserrat", sans-serif;
 }
 
+a{
+    font-family: "Montserrat", sans-serif !important;
+}
+
 h1{
+    color: var(--Secondary-color);
+    font-weight: bolder;
     font-family: "Playwrite IT Moderna", cursive;
+}
+
+#img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 
 p{
@@ -83,4 +95,12 @@ input, button{
   
 .separator:not(:empty)::after {
     margin-left: .25em;
+}
+
+.navbar-toggler{
+    border: transparent;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none;
 }
