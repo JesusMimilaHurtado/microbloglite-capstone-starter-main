@@ -1,6 +1,11 @@
 /* Posts Page JavaScript */
 
 "use strict";
+const imgSrc = localStorage.getItem('profileImg')
+
+document.addEventListener('DOMContentLoaded', () => {
+    img.src = imgSrc
+}) 
 
 function getLoginData() {
   const loginJSON = window.localStorage.getItem("login-data");

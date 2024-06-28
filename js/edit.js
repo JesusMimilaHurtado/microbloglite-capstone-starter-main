@@ -21,7 +21,7 @@ const token = localStorage.getItem('token');
 
 document.addEventListener("DOMContentLoaded", () => {
     editButton.addEventListener('click', updateData);
-    img.addEventListener('click', randomImgGenerator)
+    img.src = 'https://cataas.com/cat?position=center&width=400&height=400'
     getUserData()
 });
 
@@ -51,10 +51,6 @@ function displayUserInfo(_data){
     fullnameInput.value = _data.fullName;
 }
 
-function randomImgGenerator(){
-    
-}
-
 //will edit the data on the api
 function updateData() {
 
@@ -63,38 +59,33 @@ function updateData() {
 
     const myHeaders = new Headers();
     myHeaders.append("accept", "application/json");
-    myHeaders.append("Authorization", token);
+    myHeaders.append("Authorization", `Bearer ${token}`);
     myHeaders.append("Content-Type", "application/json");
 
-    let raw = '';
+
+    let raw = {};
 
     if (bioInfo.value) {
-        raw = JSON.stringify({
-            "bio": bioInfo.value
-        });
+        raw.bio = bioInfo.value;
     }
 
     if (fullnameInput.value) {
-        raw = JSON.stringify({
-            "fullName": fullnameInput.value
-        });
+        raw.fullName = fullnameInput.value;
     }
 
-    if (password && password == confirmedPassword) {
-        raw = JSON.stringify({
-            "password": passwordInput.value
-        });
+    if (password && password === confirmedPassword) {
+        raw.password = passwordInput.value;
     }
-    
+
     const requestOptions = {
-      method: "PUT",
-      header: myHeaders,
-      body: raw,
-      redirect: "follow"
+        method: "PUT",
+        headers: myHeaders,
+        body: JSON.stringify(raw), // Convert raw object to JSON string
+        redirect: "follow"
     };
     
-    fetch(`http://microbloglite.us-east-2.elasticbeanstalk.com/api/users/${loginData.username}`, requestOptions)
+    fetch(`http://microbloglite.us-east-2.elasticbeanstalk.com/api/users/${username}`, requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => window.location.assign("/posts.html"))
       .catch((error) => console.error(error));
 }
