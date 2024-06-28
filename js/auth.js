@@ -22,6 +22,7 @@ function getLoginData () {
 // logged in. It returns either `true` or `false`.
 function isLoggedIn () {
     const loginData = getLoginData();
+    localStorage.setItem('username', loginData.username)
     return Boolean(loginData.token);
 }
 

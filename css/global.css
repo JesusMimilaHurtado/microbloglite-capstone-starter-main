@@ -52,6 +52,7 @@ a:hover{
 .btn{    
     color:var(--Primary-color);
     background-color: var(--Secondary-color);
+    font-weight: bold;
 }
 
 .btn:hover{

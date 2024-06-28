@@ -13,27 +13,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@100..400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
 
+    <!-- local CSS -->
+     <link rel="stylesheet" href="/css/edit.css">
+
     <title>Sign-Up</title>
 </head>
 <body class="vh-100 container d-flex flex-column justify-content-center">
 
-    <h1 class="mb-5">You will need to sign up to begin you journey ⚔️</h1>
+    <h1 class="mb-5 text-center">🎶 Sign up to start your journey 🎶</h1>
 
     <form class="d-flex flex-column">
 
         <label for="name" class="mt-2">Full Name:</label>
-        <input type="text" id="name" placeholder="Jimmy Neutron" required>
+        <input type="text" id="name" placeholder="Jimmy Neutron" autocomplete="name" required>
 
         <label for="username" class="mt-2">Username:</label>
-        <input type="text" id="username" placeholder="Jimmy12Neutron" minlength="4">
+        <input type="text" id="username" placeholder="Jimmy12Neutron" autocomplete="username" minlength="4">
 
         <label for="password" class="mt-2">Create a Password:</label>
-        <input type="password" id="password" placeholder="CosmoluvsWanda90!" minlength="12" maxlength="25">
+        <input type="password" id="password" placeholder="CosmoluvsWanda90!" autocomplete="current-password" minlength="12" maxlength="25">
 
         <label for="confirmpassword" class="mt-2">Confirm Password:</label>
-        <input type="password"  id="confirmpassword" placeholder="CosmoluvsWanda90!" minlength="12" maxlength="25">
+        <input type="password"  id="confirmpassword" placeholder="CosmoluvsWanda90!" autocomplete="current-password" minlength="12" maxlength="25">
 
         <button type="button" id="signup" class="mt-4 btn btn-primary">Sign Up</button>
+
+        <div class="text-center mt-5">
+            <p>Go back to sign in <a href="index.html">Sign&nbspIn</a></p>
+        </div>
 
     </form>
 
