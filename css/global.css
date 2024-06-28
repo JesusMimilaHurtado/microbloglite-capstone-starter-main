@@ -20,7 +20,6 @@
 body{
     background: var(--Primary-color);
     color: var(--Secondary-color);
-    letter-spacing: 5px;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -43,7 +42,6 @@ h1{
 p{
     color: var(--Secondary-color);
     font-weight: bolder;
-    letter-spacing: 3px;
     text-decoration: none;
     font-size: smaller;
 }
@@ -51,7 +49,6 @@ p{
 a{
     color: var(--Accent-color-5);
     font-weight: bold;
-    letter-spacing: 3px;
     text-decoration: none;
     font-size: small;
 }

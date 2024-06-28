@@ -13,6 +13,7 @@
 
 body, a{
     font-family: "Montserrat", sans-serif !important;
+    
 }
 
 h1{
@@ -21,10 +22,20 @@ h1{
     font-family: "Playwrite IT Moderna", cursive;
 }
 
+body, a, h2, p{
+
+    letter-spacing: none;
+}
+
 img{
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
+}
+
+#post-img{
+    width: 45px;
+    height: 45px;
 }
 
 .Btn {

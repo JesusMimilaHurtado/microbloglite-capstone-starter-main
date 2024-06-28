@@ -29,11 +29,11 @@
 <body>
 
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
+        <div class="container px-0 w-100">
             <h1>Musicians </br>Cove</h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="https://placehold.co/400x400/ffe97e/f7b50d?text=Profile" alt="Profile Image" id="img">
+                <img src='https://cataas.com/cat?position=center&width=400&height=400' alt="Profile Image" class="img">
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                 <ul class="navbar-nav d-flex align-items-end mb-2 mb-lg-0">
@@ -58,28 +58,27 @@
         </div>
     </nav>
 
-    <main class="d-flex">
-        <div class="container">
+    <main class="d-flex mt-5">
+        <div class="container w-40 px-0 pt-3" >
 
+            <div class="row justify-content-center mb-3" id="profile">
+
+            </div>
+
+            <div class="row justify-content-center">
+                <h2 class="text-center">Create a Post</h2>
+                <textarea id="new_posts" class="col-8"></textarea>
+            </div>
+            <div class="row justify-content-center">
+                <button class="btn btn-primary mt-1 mb-3 col-8" id="addPost">Posts</button>
+            </div>
         </div>
 
-        <div class="container" id="new_post">
-            <div class="row justify-content-center">
-                <textarea id="new_posts" class="col-6"></textarea>
-            </div>
-            <div class="row justify-content-center">
-                <button class="btn btn-primary mt-1 col-6" id="addPost">Posts</button>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-6" id="posts">
+        <div class="container w-60" id="new_post">
+
+                <div id="posts" class="row mb-4 justify-content-center">
 
                 </div>
-            </div>
-
-        </div>
-
-        <div class="container">
-
         </div>
 
     </main>

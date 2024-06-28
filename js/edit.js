@@ -12,16 +12,12 @@ const fullnameInput = document.getElementById("fullname");
 const passwordInput = document.getElementById("password");
 const confirmPasswordInput = document.getElementById("confirmPassword");
 
-//profile image
-const img = document.querySelector('img');
-
 //stored values
 const username = localStorage.getItem('username');
 const token = localStorage.getItem('token');
 
 document.addEventListener("DOMContentLoaded", () => {
     editButton.addEventListener('click', updateData);
-    img.src = 'https://cataas.com/cat?position=center&width=400&height=400'
     getUserData()
 });
 
