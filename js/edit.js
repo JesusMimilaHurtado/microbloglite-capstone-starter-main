@@ -12,17 +12,18 @@ const fullnameInput = document.getElementById("fullname");
 const passwordInput = document.getElementById("password");
 const confirmPasswordInput = document.getElementById("confirmPassword");
 
-//stored Items
-const todoSelect = document.getElementById("todo");
-const deadlineSelect = document.getElementById("deadline");
+//profile image
+const img = document.querySelector('img');
 
-document.addEventListener("DOMContentLoaded", () => {
-    editButton.addEventListener("click", updateData);
-    getUserData()
-});
-
+//stored values
 const username = localStorage.getItem('username');
 const token = localStorage.getItem('token');
+
+document.addEventListener("DOMContentLoaded", () => {
+    editButton.addEventListener('click', updateData);
+    img.addEventListener('click', randomImgGenerator)
+    getUserData()
+});
 
 function getUserData(){
     const myHeaders = new Headers();
@@ -48,6 +49,10 @@ function getUserData(){
 function displayUserInfo(_data){
     bioInfo.value = _data.bio;
     fullnameInput.value = _data.fullName;
+}
+
+function randomImgGenerator(){
+    
 }
 
 //will edit the data on the api
